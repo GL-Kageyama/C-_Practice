@@ -2,38 +2,39 @@ using System;
 
 namespace delegate2
 {
-	class D_Sample
-	{
-		public delegate int Debug(String str1, String str2);
+    class DelegateClass
+    {
+        public delegate int Debug(String str1, String str2);
 
-		static void Main(string[] args)
-		{
-			D_Sample d_sam = new D_Sample();
-			d_sam.exec();
+        static void Main(string[] args)
+        {
+            DelegateClass delegateClass = new DelegateClass();
 
-			Console.Read();
-		}
+            delegateClass.exec();
+        }
 
-		public void exec()
-		{
-			Debug Debug1 = new Debug(delegate (String str1, String str2)
-			{
-				Console.Write(str1);
-				Console.Write(str2);
-				return str2.Length;				
-			});
+        public void exec()
+        {
+            Debug debug1 = new Debug(delegate (String str1, String str2)
+            {
+                Console.Write(str1);
+                Console.Write(str2);
+                return str2.Length;
+            });
 
-			Debug1("Hello! ", "C# ");
+            debug1("Hello! ", "C# ");
+            Console.WriteLine();
 
-			Debug Debug2 = delegate (String str1, String str2)
-			{
-				Console.Write(str1);
-				return str2.Length;
-			};
+            Debug debug2 = delegate (String str1, String str2)
+            {
+                Console.Write(str1);
+                return str2.Length;
+            };
 
-			// "!!!" is none.
-			Debug2("Dance with me!", "!!!");
-		}
-	}
+            // "!!!" is none.
+            debug2("Dance with me!", "!!!");
+            Console.WriteLine();
+        }
+    }
 }
 

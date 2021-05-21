@@ -2,48 +2,31 @@ using System;
 
 namespace lambdaSample
 {
-	class Lam_Sample
-	{
-		static void Main(string[] args)
-		{
-			Lam_Sample lam = new Lam_Sample();
-			lam.exec();
+    class LambdaClass
+    {
+        static void Main(string[] args)
+        {
+            LambdaClass lambdaClass = new LambdaClass();
 
-			Console.Read();
-		}
+            lambdaClass.exec();
+        }
 
-		public void exec()
-		{
-			Func<string, string, int> Debug1 = (string str1, string str2) =>
-			{
-				Console.Write(str1);
-				return str2.Length;
-			};
+        public void exec()
+        {
+            Func<string, string, int> debug1 = (string str1, string str2) =>
+            {
+                Console.Write(str1);
+                return str2.Length;
+            };
 
-			Debug1("Hello lambda! ", "feel good ");
+            debug1("Hello lambda !", "Feel so good !");
+            Console.WriteLine();
 
-			Console.WriteLine();
+            Func<string, string, int> debug2 = (string str1, string str2) => str1.Length + str2.Length;
 
-			// {} & return is Omit.
-			Func<string, string, int> Debug2 = (string str1, string str2) => str1.Length + str2.Length;
-
-			int count = Debug2("abcdefghijk", "Count");
-
-			Console.Write(count);
-		}
-	}
+            int count = debug2("Hello lambda !", "Feel so good !");
+            Console.Write(count);
+            Console.WriteLine();
+        }
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

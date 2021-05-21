@@ -2,48 +2,46 @@ using System;
 
 namespace delegateSample
 {
-	class Sample
-	{
-		public delegate int Debug(String str1, String str2);
+    class Sample
+    {
+        public delegate int Debug(String str1, String str2);
 
-		static void Main(string[] args)
-		{
-			Sample sm = new Sample();
-			sm.exec();
-		
-			Console.Read();
-		}
+        static void Main(string[] args)
+        {
+            Sample sample = new Sample();
 
-		public void exec()
-		{
-			// plus execute()
-			Debug m_Debug1 = new Debug(execute);
+            sample.exec();
+        }
 
-			// "C#! " is none.
-			m_Debug1("Hello! ", "C#! ");
+        public void exec()
+        {
+            // plus execute()
+            Debug debug1 = new Debug(execute);
 
-			Console.WriteLine();
+            // "C#! " is none.
+            debug1("Hello! ", "C#! ");
 
-			Debug m_Debug2 = execute;
+            Console.WriteLine();
 
-			// plus execute2()
-			m_Debug2 += new Debug(execute2);
-			m_Debug2("Dance with ", "world!");
+            Debug debug2 = execute;
 
-		}
+            // plus execute2()
+            debug2 += new Debug(execute2);
+            debug2("Dance with ", "world!");
 
-		public int execute(String str1, String str2)
-		{
-			Console.Write(str1);
-			return str2.Length;
-		}
+            Console.WriteLine();
+        }
 
-		public int execute2(String str1, String str2)
-		{
-			Console.Write(str2);
-			return str1.Length;
-		}
-	}
+        public int execute(String str1, String str2)
+        {
+            Console.Write(str1);
+            return str2.Length;
+        }
+
+        public int execute2(String str1, String str2)
+        {
+            Console.Write(str2);
+            return str1.Length;
+        }
+    }
 }
-
-

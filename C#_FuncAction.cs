@@ -2,39 +2,35 @@ using System;
 
 namespace FuncActionSample
 {
-	class FuncAction
-	{
-		static void Main(string[] args)
-		{
-			FuncAction fa = new FuncAction();
-			fa.exec();
+    class FuncAction
+    {
+        static void Main(string[] args)
+        {
+            FuncAction funcAction = new FuncAction();
 
-			Console.Read();
-		}
+            funcAction.exec();
+        }
 
-		public void exec()
-		{
-			// Func have a Return value.
-			Func<string, string, int> Debug1 = delegate (string str1, string str2)
-			{
-				Console.Write(str1);
-				return str2.Length;
-			};
+        public void exec()
+        {
+            // Func have a Return value.
+            Func<string, string, int> debug1 = delegate(string str1, string str2)
+            {
+                Console.Write(str1);
+                return str2.Length;
+            };
 
-			Debug1("Func is good.", "I'm fine.");
+            debug1("Func is good.", "I'm fine.");
+            Console.WriteLine();
 
-			Console.WriteLine();
+            // Action haven't Return value.
+            Action <string, string> debug2 = delegate(string str1, string str2)
+            {
+                Console.Write(str1);
+            };
 
-			// Action haven't Return value.
-			Action <string, string> Debug2 = delegate (string str1, string str2)
-			{
-				Console.Write(str1);
-			};
-
-			Debug2("Action is good.", "How are you?");
-
-			Console.WriteLine();
-		}
-	}
+            debug2("Action is good.", "How are you?");
+            Console.WriteLine();
+        }
+    }
 }
-
